@@ -1,9 +1,9 @@
 package com.pikolic.meli.dto.item;
 
 public record ItemResponseDTO(
-        long id,
+        Long id,
         String name,
         String description,
-        double price
+        Double price
 ) {
 }

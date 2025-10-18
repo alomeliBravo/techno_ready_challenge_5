@@ -6,5 +6,5 @@ import jakarta.validation.constraints.Positive;
 public record ItemUpdateDTO(
         @NotBlank String name,
         String description,
-        @Positive double price
+        @Positive Double price
 ) {}
