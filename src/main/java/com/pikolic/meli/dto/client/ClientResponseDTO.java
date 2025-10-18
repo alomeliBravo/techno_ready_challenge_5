@@ -1,9 +1,9 @@
 package com.pikolic.meli.dto.client;
 
 public record ClientResponseDTO(
-   long id,
+   Long id,
    String name,
-   int age,
+   Integer age,
    String email,
    String address
 ) {}
