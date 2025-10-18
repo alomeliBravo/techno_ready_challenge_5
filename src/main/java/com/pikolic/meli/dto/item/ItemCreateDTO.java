@@ -7,6 +7,6 @@ import jakarta.validation.constraints.Positive;
 public record ItemCreateDTO(
         @NotBlank String name,
         String description,
-        @NotNull @Positive double price
+        @NotNull @Positive Double price
 ) {
 }
