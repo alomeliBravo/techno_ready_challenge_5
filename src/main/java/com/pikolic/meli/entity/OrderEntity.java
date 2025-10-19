@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Table(name = "orders")
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderEntity {
