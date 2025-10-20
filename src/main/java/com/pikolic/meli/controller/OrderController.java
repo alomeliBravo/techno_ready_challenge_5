@@ -19,7 +19,7 @@ class OrderController {
 
     private final OrderService orderService;
 
-    @PutMapping({"","/"})
+    @PostMapping({"","/"})
     public ResponseEntity<OrderResponseDTO> addOrder(@Valid @RequestBody OrderCreateDTO dto){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
