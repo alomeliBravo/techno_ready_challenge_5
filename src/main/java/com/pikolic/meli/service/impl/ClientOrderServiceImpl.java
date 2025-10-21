@@ -12,7 +12,6 @@ import com.pikolic.meli.repository.ClientRepository;
 import com.pikolic.meli.repository.ItemRepository;
 import com.pikolic.meli.repository.OrderRepository;
 import com.pikolic.meli.service.ClientOrderService;
-import com.pikolic.meli.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ClioentOrderServiceImpl implements ClientOrderService {
+public class ClientOrderServiceImpl implements ClientOrderService {
     private final OrderRepository orderRepository;
     private final ClientRepository clientRepository;
     private final ItemRepository itemRepository;
