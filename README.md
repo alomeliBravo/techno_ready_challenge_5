@@ -62,6 +62,23 @@ mvn clean install
 ```
 
 ## How to run
+
+**Setup the environment**
+
+Go to application.properties and setup all the necessary to use H2 Database
+
+```application.properties
+spring.application.name=meli
+spring.datasource.url=jdbc:h2:mem:meli_db;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.defer-datasource-initialization=true
+spring.jpa.show-sql=true
+```
+
 ```bash
 mvn spring-boot:run
 ```
