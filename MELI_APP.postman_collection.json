@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "875a6f83-be60-4759-a9e2-9dc3b28d38cb",
+		"name": "MELI APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40342251"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Create a Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\"  : \"\",\r\n    \"age\"   : -1,\r\n    \"email\" : \"\",\r\n    \"address\" : \"Avenida Venados #408\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/clients/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Daniel Lomelí\",\r\n    \"age\" : 25,\r\n    \"email\" : \"Alomelibravo@gmail.com\",\r\n    \"address\" : \"Francisco Alarcon #408\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/clients/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Add new Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Coca-Cola\",\r\n    \"description\" : \"Coca-Cola 500ml\",\r\n    \"price\": 20.4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/api/v1/items/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/items/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/items/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Coca-Cola\",\r\n    \"description\" : \"Refresco Sabor Cola 600ml\",\r\n    \"price\": 25.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/items/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/items/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create new Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 1,\r\n    \"itemId\" : 1,\r\n    \"purchaseDate\" : \"2025-10-20\",\r\n    \"total\" : 25.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/orders/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientId\": 2,\r\n    \"itemId\" : 2,\r\n    \"purchaseDate\" : \"2025-11-20\",\r\n    \"total\" : 56.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/orders/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/orders/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client Orders",
+			"item": [
+				{
+					"name": "Get all Orders of a Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/3/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Order of a Client",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/2/orders/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Order fo Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/clients/3/orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order for Client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itemId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/clients/3/orders/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order of a Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/clients/2/orders/1"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
