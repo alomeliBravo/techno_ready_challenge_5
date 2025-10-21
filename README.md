@@ -65,22 +65,57 @@ mvn clean install
 
 **Setup the environment**
 
-Go to application.properties and setup all the necessary to use H2 Database
-
-```application.properties
-spring.application.name=meli
-spring.datasource.url=jdbc:h2:mem:meli_db;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-spring.datasource.driver-class-name=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=create-drop
-spring.jpa.defer-datasource-initialization=true
-spring.jpa.show-sql=true
+Rename .env.example -> .env
+```bash
+mv .env.example .env
 ```
 
+Configure .env file
+
+**Example**
+```.env
+DB_URL=jdbc:postgresql://db.XXXXXXXXXX.supabase.co:5432/postgres
+DB_USERNAME=postgres
+DB_PASSWORD=XXXXX
+```
+
+You will see 4 different application.properties
+
+- application.properties
+- application-dev.properties (develompent profile)
+- application-prod.properties (production profile)
+- application-test.properties (test profile)
+
+You can run the project in different ways
+
+**Maven**
 ```bash
-mvn spring-boot:run
+mvn spring-boot:run #dev profile (default)
+```
+**CMD**
+```bash
+run.bat dev  #development profile
+run.bat test #test profile
+run.bat prod #production profile
+run.bat      #development profile (default)
+```
+**PowerShell**
+```PowerShell
+.\run.ps1 dev  #development profile
+.\run.ps1 test #test profile
+.\run.ps1 prod #production profile
+.\run.ps1      #development profile (default)
+```
+
+**MAC / LINUX**
+
+```bash
+chmod +x run.sh #Give permission to execute
+
+./run.sh dev    #development profile
+./run.sh test   #test profile
+./run.sh prod   #production profile
+./run.sh        #development profile
 ```
 
 ## Validation and Error Handling
