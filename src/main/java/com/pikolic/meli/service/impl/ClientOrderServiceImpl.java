@@ -37,6 +37,9 @@ public class ClientOrderServiceImpl implements ClientOrderService {
 
     @Override
     public OrderResponseDTO getOrderByClientAndId(Long clientId, Long orderId){
+        ClientEntity client = this.clientRepository.findById(clientId)
+                .orElseThrow(() -> new NotFoundException("No Client found with id " + clientId));
+
         OrderEntity order = this.orderRepository.findById(orderId)
                 .orElseThrow(() -> new NotFoundException("No Order found with id " + orderId));
 
