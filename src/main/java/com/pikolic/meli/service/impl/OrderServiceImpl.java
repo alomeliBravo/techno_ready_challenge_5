@@ -29,10 +29,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResponseDTO create(@Valid OrderCreateDTO dto){
         ClientEntity client = clientRepository.findById(dto.clientId())
-                .orElseThrow(()->new IllegalArgumentException("No Client found with id " + dto.clientId()));
+                .orElseThrow(()->new NotFoundException("No Client found with id " + dto.clientId()));
 
         ItemEntity item = itemRepository.findById(dto.itemId())
-                .orElseThrow(()->new IllegalArgumentException("No Item found with id " + dto.itemId()));
+                .orElseThrow(()->new NotFoundException("No Item found with id " + dto.itemId()));
 
         OrderEntity order = OrderMapper.toEntity(dto, client, item);
         this.orderRepository.save(order);
@@ -43,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResponseDTO getById(Long id){
         OrderEntity order = this.orderRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("No Order found with id " + id));
+                .orElseThrow(() -> new NotFoundException("No Order found with id " + id));
 
         return OrderMapper.toResponse(order);
     }
@@ -62,13 +62,13 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResponseDTO update(Long id, @Valid OrderUpdateDTO dto){
         OrderEntity order = this.orderRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("No Order found with id " + id));
+                .orElseThrow(() -> new NotFoundException("No Order found with id " + id));
 
         ClientEntity client = this.clientRepository.findById(dto.clientId())
-                .orElseThrow(()->new IllegalArgumentException("No Client found with id " + dto.clientId()));
+                .orElseThrow(()->new NotFoundException("No Client found with id " + dto.clientId()));
 
         ItemEntity item = this.itemRepository.findById(dto.itemId())
-                .orElseThrow(()->new IllegalArgumentException("No Item found with id " + dto.itemId()));
+                .orElseThrow(()->new NotFoundException("No Item found with id " + dto.itemId()));
 
 
         OrderMapper.updateEntity(order, dto, client, item);
@@ -80,7 +80,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void delete(Long id){
         OrderEntity order = this.orderRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("No Order found with id " + id));
+                .orElseThrow(() -> new NotFoundException("No Order found with id " + id));
 
         this.orderRepository.delete(order);
     }
