@@ -5,6 +5,7 @@ import com.pikolic.meli.dto.order.OrderResponseDTO;
 import com.pikolic.meli.service.ClientOrderService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,9 @@ class ClientOrderController {
 
     @PostMapping({"/{clientId}/orders","/{clientId}/orders/"})
     public ResponseEntity<OrderResponseDTO> createOrderForClient(@PathVariable Long clientId, @Valid @RequestBody OrderCreateForClientDTO dto){
-        return ResponseEntity.ok(this.clientOrderService.createOrderForClient(clientId, dto));
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(this.clientOrderService.createOrderForClient(clientId, dto));
     }
 
     @PutMapping("/{clientId}/orders/{orderId}")
