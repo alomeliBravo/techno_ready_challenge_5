@@ -19,6 +19,7 @@ API for managing customers, items, and orders. Developed in Spring Boot.
 - [Validation and error handling](#validation-and-error-handling)
 - [Architecture](#architecture)
 - [Endpoints](#endpoints)
+- [Tests](#integration-tests)
 
 ## Description
 
@@ -281,3 +282,25 @@ techno_ready_challenge_5/
 | GET    | /api/v1/clients/{clientId}/orders/{orderId} | Get a specific Order of a Client |
 | PUT    | /api/v1/clients/{clientId}/orders/{orderId} | Update Order of a Client         |
 | DELETE | /api/v1/clients/{clientId}/orders/{orderId} | Delete a Order of a Client       |
+
+**Swagger Documentation**
+
+http://localhost:8080/swagger-ui/index.html
+
+## Integration Tests
+
+Integration tests are included to verify the behavior of the API endpoints and ensure that all components of the application work together correctly.
+
+These tests cover scenarios such as:
+- Creating, retrieving, updating, and deleting clients, items, and orders.
+- Ensuring validation constraints are enforced.
+- Verifying the relationship between clients and orders.
+- Handling error cases, such as requesting non-existent resources or invalid input data.
+
+The tests use Spring Boot's testing framework along with an in-memory H2 database, allowing them to run quickly and in isolation from external dependencies.
+
+To run the integration tests, execute:
+
+```bash
+mvn -Dtest=*IntegrationTest test
+```
