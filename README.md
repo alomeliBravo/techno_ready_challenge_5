@@ -148,11 +148,12 @@ The API uses **Jakarta Validation** annotations to ensure data integrity across 
 
 All validation and business logic error are handled by a GlobalExceptionHandler, returning a consistent JSON reponses:
 
-| Exception Type        | Https Status | Example Message         |
-|-----------------------|--------------|-------------------------|
-| NotFoundException     | 404          | No item found with id 1 |
-| MethodArgumentInvalid | 400          | email is required       |
-| GenericException      | 500          | Sorry. An unexpected error has ocurred. Try again later                        |
+| Exception Type        | Https Status | Example Message                                         |
+|-----------------------|--------------|---------------------------------------------------------|
+| NotFoundException     | 404          | No item found with id 1                                 |
+| MethodArgumentInvalid | 400          | email is required                                       |
+| GenericException      | 500          | Sorry. An unexpected error has ocurred. Try again later |
+| ForbbidenException    | 403          | This order doesn't belong to Client with id #           |
 
 ## Architecture
 
@@ -239,6 +240,10 @@ techno_ready_challenge_5/
 │
 └── resources/
     └── application.properties
+    └── application-dev.properties
+    └── application-prod.properties
+    └── application-test.properties
+
 ```
 
 ## Endpoints
