@@ -48,6 +48,7 @@ public class ClientOrderServiceImpl implements ClientOrderService {
                 .orElseThrow(() -> new NotFoundException("No Client found with id " + clientId));
 
         List<OrderEntity> clientOrders = this.orderRepository.findOrdersByClientId(clientId);
+        if(clientOrders.isEmpty()) throw new NotFoundException("No Orders found for client with id " + clientId);
         return clientOrders.stream().map(OrderMapper::toResponse).toList();
     }
 
